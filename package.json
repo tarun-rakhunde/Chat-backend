@@ -1,0 +1,33 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "Chat backend: users and chats in PostgreSQL, messages, read receipts and last-seen in Firebase Firestore.",
+  "private": true,
+  "main": "dist/server.js",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test --test-reporter=spec test/*.test.ts",
+    "db:migrate": "tsx src/infra/migrate.ts",
+    "db:seed": "tsx src/infra/seed.ts",
+    "demo": "tsx scripts/demo.ts"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "firebase-admin": "^13.4.0",
+    "pg": "^8.16.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.15.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}
